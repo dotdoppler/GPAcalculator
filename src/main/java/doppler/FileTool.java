@@ -1,4 +1,4 @@
-package login;
+package doppler;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -8,7 +8,7 @@ import java.io.IOException;
 /**
  * Created by doppler on 2016/5/1.
  */
-public class FileUtil {
+public class FileTool {
    private static String line = "";
     public static  void writeHTML(String fileDir, String fileName, BufferedReader reader) throws IOException {
         File dir = new File(fileDir);
