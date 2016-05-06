@@ -22,8 +22,10 @@ public class LoginSimulator {
         connection.setDoOutput(true);
         OutputStreamWriter out = new OutputStreamWriter(connection.getOutputStream(),"UTF-8");
         //从js里面发现是这样加密的： var signedpwd = hex_md5(user + sign + hex_md5(pwd.trim()));
-        out.write("Action=Login&userName=201313070407&pwd=ff7ec7491d89cbe39891e0489fc95922&sign=1462086553535");
-       // out.write("Action=Login&userName=" + loginInfo[0] + "&pwd=" + loginInfo[1] +"&sign=" + loginInfo[2]);
+        String s = "Action=Login&userName=201313070411&pwd=6f831fdfc51c8ea74ec4613a2dd97341&sign=1462086553535";
+        //out.write("Action=Login&userName=201313070407&pwd=ff7ec7491d89cbe39891e0489fc95922&sign=1462086553535");
+       out.write(s);
+        // out.write("Action=Login&userName=" + loginInfo[0] + "&pwd=" + loginInfo[1] +"&sign=" + loginInfo[2]);
         out.flush();
         out.close();
 

@@ -25,10 +25,11 @@ public class TextProcessor {
             return null;
         else {
             ArrayList<String> tags = getTagsofLi(content);
+
             lists[0] = getSemesters(tags);
             lists[1] = getCourseName(tags);
             lists[2] = getTeachers(tags);
-            lists[3] = getGrade(tags);
+            lists[3] = getGrade(cleanCredit(content));
             lists[4] = getCredits(tags);
             lists[5] = getGradePoint(tags);
 
@@ -57,6 +58,7 @@ public class TextProcessor {
         }
         return null;
     }
+
     /**匹配每个<li>标签中的学期,放入list并返回
      *
      */
@@ -106,19 +108,49 @@ public class TextProcessor {
         return match(tags,new ArrayList<String>(),Constants.REGEX_MATCHGRADEPOINT,1);
     }
 
-
-    private ArrayList<String> match(List<String> src,ArrayList<String> des,String regex,int group){
-        for (String s : src){
-            Pattern pattern = Pattern.compile(regex);
-            Matcher matcher = pattern.matcher(s);
+    /**
+     *替换匹配到的学分
+     */
+    private ArrayList<String> cleanCredit(String content){
+        content = this.content;
+        if (content != null) {
+            ArrayList<String> items = new ArrayList<String>();
+            ArrayList<String> itemsNoCredits = new ArrayList<String>();
+            Pattern pattern = Pattern.compile(Constants.REGEX_0);
+            Matcher matcher = pattern.matcher(content);
             boolean isFind = matcher.find();
-
-            while (isFind){
-                des.add(matcher.group(group) == null ? matcher.group(group) : "" );
+            while (isFind) {
+                items.add(matcher.group(0));
                 isFind = matcher.find();
             }
+
+            String newStr;
+                for (String s : items){
+                    newStr = s.replaceAll(Constants.REGEX_MATCHCREDITS,"");
+                    itemsNoCredits.add(newStr);
+                }
+            return itemsNoCredits;
+            }
+
+
+        return null;
+    }
+
+    private ArrayList<String> match(List<String> src,ArrayList<String> des,String regex,int group){
+        if (src != null) {
+            for (String s : src) {
+                Pattern pattern = Pattern.compile(regex);
+                Matcher matcher = pattern.matcher(s);
+                boolean isFind = matcher.find();
+
+                while (isFind) {
+                    des.add(matcher.group(group) != null ? matcher.group(group) : "");
+                    isFind = matcher.find();
+                }
+            }
+            return des;
         }
-        return des;
+        return null;
     }
 
 

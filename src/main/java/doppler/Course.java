@@ -9,7 +9,7 @@ public class Course {
     private String teacher;
     private String credits;
     private String grade;
-    private String gradeType;
+    //private String gradeType;
     private String gradePoint;
 
     public String getGradePoint() {
@@ -20,13 +20,13 @@ public class Course {
         this.gradePoint = gradePoint;
     }
 
-    public String getGradeType() {
-        return gradeType;
-    }
-
-    public void setGradeType(String gradeType) {
-        this.gradeType = gradeType;
-    }
+//    public String getGradeType() {
+//        return gradeType;
+//    }
+//
+//    public void setGradeType(String gradeType) {
+//        this.gradeType = gradeType;
+//    }
 
     public String getGrade() {
         return grade;

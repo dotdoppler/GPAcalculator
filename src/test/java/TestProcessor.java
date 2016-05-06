@@ -1,18 +1,25 @@
+import doppler.LoginSimulator;
+import doppler.TextProcessor;
+import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import doppler.*;
+
 import java.util.List;
+
 /**
  * Created by doppler on 2016/5/6.
  */
 public class TestProcessor {
-    LoginSimulator loginSimulator;
-    TextProcessor processor;
-    List[] lists;
-    String text;
+
+    private LoginSimulator loginSimulator;
+    private TextProcessor processor;
+    private List[] lists;
+    private String text;
+    private Logger logger = Logger.getLogger(TestProcessor.class);
+
     @Before
-   public void init(){
+    public void init(){
        loginSimulator = new LoginSimulator();
        text = loginSimulator.loginAndGetText(null);
        processor  = new TextProcessor(text);
@@ -39,6 +46,7 @@ public class TestProcessor {
     public void testGetGrade(){
 
         Assert.assertEquals(lists[3].size(),62);
+
     }
 
     @Test
@@ -46,7 +54,14 @@ public class TestProcessor {
         Assert.assertEquals(lists[4].size(),62);
     }
     @Test
-    public void testGetGradePoint(){
-        Assert.assertEquals(lists[5].size(),62);
+    public void testPrint(){
+                for (Object o :lists[3])
+           logger.info(o.toString().length());
+    }
+    @Test
+    public  void testStr(){
+        System.out.println(lists[3].get(0).toString().equals("中"));
+
+
     }
 }
