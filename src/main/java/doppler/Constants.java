@@ -11,7 +11,7 @@ public final class Constants {
     public final static String REGEX_MATCHTEACHER = "7%;\"> +(.*?)&";
     public final static String REGEX_MATCHCREDITS = "4%;\"> +(([1-9])|(\\d.50))&";
     public final static String REGEX_MATCHGRADE = "4%;\"> +(((\\d)|([1-9]\\d)|([\\u4E00-\\u9FA5]*?)))&";
-    public final static String REGEX_MATCHGRADETYPE = "10%;\"> +([\\u4E00-\\u9FA5]*?)&";
+    public final static String REGEX_MATCHGRADETYPE = "10%;\"> +([\\u4E00-\\u9FA5][\\u4E00-\\u9FA5]*?)&";
     public final static String REGEX_MATCHGRADEPOINT = "10%;\"> +(([1-5].\\d\\d)|(\\d))&";
     public final static String REGEX_REPALCECREDITS = "";
 
