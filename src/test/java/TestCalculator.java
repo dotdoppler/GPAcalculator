@@ -9,13 +9,13 @@ import java.util.List;
 /**
  * Created by doppler on 2016/5/6.
  */
-public class TestCaculator {
+public class TestCalculator {
 
     private LoginSimulator loginSimulator;
     private TextProcessor processor;
     private List[] lists;
     private String text;
-    private Logger logger = Logger.getLogger(TestCaculator.class);
+    private Logger logger = Logger.getLogger(TestCalculator.class);
 
     @Before
     public void init(){
@@ -25,9 +25,10 @@ public class TestCaculator {
         lists = processor.process();
     }
     @Test
-    public void testCaculator(){
+    public void testCalculator(){
         int[] grades = new int[lists[3].size()];
         float[] credits = new float[lists[4].size()];
+        Object[] codes =  lists[5].toArray();
         for (int i = 0 ,j = 0;i < lists[3].size() & j < lists[4].size();i++,j++){
             String grade_str = lists[3].get(i).toString();
             int grade_int = 0;
@@ -48,6 +49,18 @@ public class TestCaculator {
 
             credits[j] = Float.parseFloat(lists[4].get(j).toString());
             }
+        for(int i = 0 ; i < codes.length ; i++){
+            for (int j = i+1 ; j < codes.length ; j++) {
+                if (codes[i].equals(codes[j])){
+                    if (grades[i] >= grades[j])
+                        grades[j] = 0;
+                    else if (grades[i] < grades[j])
+                        grades[i] = 0;
+                }
+            }
+        }
+
+
         int GPA = 0;
         float creditSum = 0;
         float gradePointSum = 0;

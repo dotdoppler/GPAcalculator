@@ -31,7 +31,7 @@ public class TextProcessor {
             lists[2] = getTeachers(tags);
             lists[3] = getGrade(cleanCredit(content));
             lists[4] = getCredits(tags);
-            lists[5] = getGradePoint(tags);
+            lists[5] = getCode(tags);
 
             return lists;
         }
@@ -104,8 +104,15 @@ public class TextProcessor {
     /**
      * 匹配绩点，放入list并返回
      */
+    @Deprecated
     private ArrayList<String> getGradePoint(List<String> tags){
         return match(tags,new ArrayList<String>(),Constants.REGEX_MATCHGRADEPOINT,1);
+    }
+    /**
+     * 匹配课程代码，放入list并返回
+     */
+    private ArrayList<String> getCode(List<String> tags){
+        return match(tags,new ArrayList<String>(),Constants.REGEX_MATCHCODE,1);
     }
 
     /**

@@ -28,40 +28,34 @@ public class TestProcessor {
     @Test
     public void testGetSemesters(){
 
-        Assert.assertEquals(lists[0].size(),62);
+        Assert.assertEquals(lists[0].size(),66);
     }
     @Test
     public void testGetCourseName(){
 
-        Assert.assertEquals(lists[1].size(),62);
+        Assert.assertEquals(lists[1].size(),66);
 
     }
     @Test
     public void testGetTeachers(){
 
-        Assert.assertEquals(lists[2].size(),62);
+        Assert.assertEquals(lists[2].size(),66);
 
     }
     @Test
     public void testGetGrade(){
 
-        Assert.assertEquals(lists[3].size(),62);
+        Assert.assertEquals(lists[3].size(),66);
 
     }
 
     @Test
     public void testGetCredits(){
-        Assert.assertEquals(lists[4].size(),62);
+        Assert.assertEquals(lists[4].size(),66);
     }
-    @Test
-    public void testPrint(){
-                for (Object o :lists[3])
-           logger.info(o.toString().length());
-    }
-    @Test
-    public  void testStr(){
-        System.out.println(lists[3].get(0).toString().equals("中"));
 
-
-    }
+    @Test
+    public void testGetCode(){
+       Assert.assertEquals(lists[5].size(),66);
+   }
 }
