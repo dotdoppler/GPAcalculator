@@ -1,4 +1,4 @@
-package doppler;
+package doppler.utils;
 
 import java.io.BufferedReader;
 import java.io.File;

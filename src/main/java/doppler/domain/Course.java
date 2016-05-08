@@ -1,4 +1,4 @@
-package doppler;
+package doppler.domain;
 
 /**
  * Created by doppler on 2016/5/3.

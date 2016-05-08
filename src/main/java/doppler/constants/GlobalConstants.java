@@ -1,9 +1,9 @@
-package doppler;
+package doppler.constants;
 
 /**
  * Created by doppler on 2016/5/3.
  */
-public final class Constants {
+public final class GlobalConstants {
 
     public final static String REGEX_0 = "<li class=\"item\">.*?</li>";
     public final static String REGEX_MATCHSEM = "6%;\"> +(\\d{6})&";
