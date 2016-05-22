@@ -6,6 +6,7 @@ import doppler.service.ProcessService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -28,11 +29,19 @@ public class MyController {
     @Autowired
     private CalService calService;
 
-    @RequestMapping("/")
+    @RequestMapping(value = "",method = RequestMethod.GET)
     String home() {
         return "view/home.html";
     }
+    @RequestMapping(value = "jade",method = RequestMethod.GET)
+    String jade(){
 
+        return "home";
+    }
+    @RequestMapping(value = "test",method = RequestMethod.GET)
+    String test(){
+        return "test";
+    }
     @RequestMapping("/gpa")
     @ResponseBody
     String[] run(@RequestParam("user") String user, @RequestParam("sign") String sign,

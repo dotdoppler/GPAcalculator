@@ -48,9 +48,9 @@ public class LoginServiceImpl implements LoginService {
         String result = "";
         InputStream urlStream = connection.getInputStream();
         BufferedReader in = new BufferedReader(new InputStreamReader(urlStream));
+
         while ((line = in.readLine()) != null)
             result += line;
-
         in.close();
         logger.info("response : " + result);
         if (result.equals("4"))
@@ -72,12 +72,12 @@ public class LoginServiceImpl implements LoginService {
         connection.setRequestProperty("Cookie",cookies);
         connection.connect();
         String line = "";
-        String result = "";
+        StringBuilder result = new StringBuilder();
         InputStream urlStream = connection.getInputStream();
         BufferedReader in = new BufferedReader(new InputStreamReader(urlStream));
         while((line = in.readLine()) != null)
-            result += line;
+            result.append(line);
         in.close();
-        return  result;
+        return  result.toString();
     }
 }

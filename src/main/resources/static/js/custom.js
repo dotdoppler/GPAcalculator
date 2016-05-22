@@ -15,7 +15,7 @@ function submitInfo(){
         },
         dataType : "json",
         success : function(data) {
-            if(data[0] == "loginError")
+            if(data[0] == "login Error")
                 alert("密码或学号错误");
             else {
                 $("#gpa").text(data[0]) ;
